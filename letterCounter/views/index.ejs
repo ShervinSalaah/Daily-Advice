@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Letter Counter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #f9f9f9;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        input {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 15px;
+            background: #e8f4fd;
+            border-radius: 5px;
+        }
+        .result h2 {
+            color: #007bff;
+        }
+        .result p {
+            font-size: 18px;
+        }
+        .count {
+            font-size: 3em;
+            font-weight: bold;
+            color: #007bff;
+        }
+    </style>
+</head>
+<body>
+    <h1>📝 Letter Counter</h1>
+    <p>Enter your first and last name to count the total letters</p>
+    
+    <!-- ✅ Fixed: action="/submit" method="POST" -->
+    <form action="/submit" method="POST">
+        <input type="text" name="fname" placeholder="Enter your first name" required>
+        <input type="text" name="lname" placeholder="Enter your last name" required>
+        <button type="submit">Count Letters</button>
+    </form>
+
+    <!-- ✅ Display results if available -->
+    <% if (letterCount !== null) { %>
+        <div class="result">
+            <h2>Results</h2>
+            <p>Full Name: <strong><%= fullName %></strong></p>
+            <p>Total Letters:</p>
+            <div class="count"><%= letterCount %></div>
+        </div>
+    <% } %>
+</body>
+</html>

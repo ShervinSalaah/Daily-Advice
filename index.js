@@ -4,7 +4,8 @@ const app = express();
 const port = 3000; 
 
 app.get("/", (req,res) => {
-    const today = new Date("June 24, 2023 11:13:00"); 
+    const today = new Date();
+    //June 24, 2023 11:13:00  
     const day = today.getDay(); 
 
     let type = "a weekday"; 
